@@ -25,9 +25,9 @@ In this challenge, you will create a Single Page Application complete with Clien
 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question.
 
-- [ ]  Explain benefit(s) using `client-side routing`?
+- [x]  Explain benefit(s) using `client-side routing`?
 
-> Answer:
+> Answer: A client side router happens when the route is handled internally by the Javascript that is loaded on the page. The benefits of this include easier implementation of transitions and animations and faster routing due to the smaller amount of data required. 
 
 ## Project Set Up
 
