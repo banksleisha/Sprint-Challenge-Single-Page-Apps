@@ -67,10 +67,10 @@ _Display Data from a Server API_
 - [x]  Fetch a list of characters from the Rick and Morty API's Characters endpoint *`https://rickandmortyapi.com/api/character/`* and render them to the screen.
 - [x]  You must display at least one element for each character.
 
-_Add a Router to this application using [React Router](https://reacttraining.com/react-router/web/guides/quick-start)._
+[x]_Add a Router to this application using [React Router](https://reacttraining.com/react-router/web/guides/quick-start)._
 
 - [x]  Hook up the Welcome page(Home page) and a Characters page with React Router.
-- [ ]  Use a styling or component library for part of or all of your application. (Pick at least 1 of: [s](https://react-bootstrap.github.io/)tyled-components or Reactstrap).
+- [x]  Use a styling or component library for part of or all of your application. (Pick at least 1 of: [s](https://react-bootstrap.github.io/)tyled-components or Reactstrap).
 
 _Add 'Search by Name' feature._
 

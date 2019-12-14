@@ -3,7 +3,18 @@ import axios from 'axios';
 import CharacterCard from "./CharacterCard";
 import { Link } from "react-router-dom";
 import SearchForm from "./SearchForm";
+import styled from "styled-components";
 
+
+const Title = styled.h2`
+text-align: center;`
+
+const Nav = styled.div`
+text-align: center;
+color: white;
+`
+const Button = styled.button`
+background: white;`
 export default function CharacterList() {
   // TODO: Add useState to track data from useEffect
 
@@ -32,8 +43,12 @@ export default function CharacterList() {
 
   return (
     <section className="character-list">
-      <h2>Rick and Morty Characters</h2>
+      <Title>Rick and Morty Characters</Title>
+      <Nav>
+        <Button>
       <Link className="nav" to={"/"}> Home </Link>
+      </Button>
+      </Nav>
       <SearchForm search={search} characters ={characters} />
       {characters.map((char, id) => {
         return <CharacterCard key={id} char={char} />
