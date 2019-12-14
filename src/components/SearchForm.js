@@ -16,7 +16,7 @@ export default function SearchForm( props) {
       const characterReturn=characters.filter(character => { 
         return character.name.toLowerCase().includes(CurrentSearch.toLowerCase());
       })
-
+        addNames(characterReturn)
        
      })
    .catch(error=> {
