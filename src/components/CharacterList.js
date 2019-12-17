@@ -19,34 +19,20 @@ export default function CharacterList() {
   // TODO: Add useState to track data from useEffect
 
   const [characters, setCharacters] = useState([]);
-  const [filterData, updateData] = useState([]);
+  const [filterData , updateData] = useState([]); //this is why it isn't filtering properly
 
   const search = chars => {
     updateData(chars)
   };
 
-  useEffect(() => {
-    
-    axios
-    .get("https://rickandmortyapi.com/api/character/")
-    .then (response => {
-      console.log (response.data.results)
-      setCharacters(response.data.results)
-    })
-
-    .catch(err => {
-      console.log("error");
-    });
-    // TODO: Add API Request here - must run in `useEffect`
-    //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
-  }, []);
+  
 
   return (
     <section className="character-list">
       <Title>Rick and Morty Characters</Title>
       <Nav>
         <Button>
-      <Link className="nav" to={"/"}> Home </Link>
+      <Link className="nav" to="/"> Home </Link>
       </Button>
       </Nav>
       <SearchForm search={search} characters ={characters} />

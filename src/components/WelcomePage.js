@@ -1,6 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
-
+import { Link } from "react-router-dom"; //router
 import styled from "styled-components";
 
 const Welcome = styled.section`
