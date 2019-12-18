@@ -17,28 +17,47 @@ const Button = styled.button`
 background: white;`
 export default function CharacterList() {
   // TODO: Add useState to track data from useEffect
-
-  const [characters, setCharacters] = useState([]);
-  const [filterData , updateData] = useState([]); //this is why it isn't filtering properly
+  const [characters, setCharacters]= useState([]);
+  const [data, setData]= useState([]);
 
   const search = chars => {
-    updateData(chars)
-  };
+    setData(chars)
+  }
 
+  useEffect(() => {
+  // TODO: Add API Request here - must run in `useEffect`
+  //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
+
+      axios
+      .get(`https://rickandmortyapi.com/api/character/`)
+      .then(response => {
+        setCharacters(response.data.results);
+        data(response.data.results);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+
+  }, []);
+
+return (
+  <section className="character-list">
+  <Title>Rick and Morty Characters</Title>
+  <Nav>
+    <Button>
+  <Link className="nav" to="/"> Home </Link>
+  </Button>
+  <SearchForm search = {search} character={characters} />
+  </Nav>
   
-
-  return (
-    <section className="character-list">
-      <Title>Rick and Morty Characters</Title>
-      <Nav>
-        <Button>
-      <Link className="nav" to="/"> Home </Link>
-      </Button>
-      </Nav>
-      <SearchForm search={search} characters ={characters} />
-      {characters.map((char, id) => {
-        return <CharacterCard key={id} char={char} />
-      })}
-    </section>
-  );
-}
+    {data.map(chars => (
+      <CharacterCard
+        key={chars.id}
+        name={chars.name}
+        species={chars.species}
+        gender={chars.gender}
+      />
+         ))}
+  </section>
+);
+};
