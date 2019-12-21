@@ -18,9 +18,10 @@ background: white;`
 export default function CharacterList() {
   // TODO: Add useState to track data from useEffect
   const [characters, setCharacters]= useState([]);
-  const [data, setData]= useState([]);
+  const [newdata, setData]= useState([]);
 
-  const search = chars => {
+  const filter = chars => {
+    
     setData(chars)
   }
 
@@ -32,7 +33,7 @@ export default function CharacterList() {
       .get(`https://rickandmortyapi.com/api/character/`)
       .then(response => {
         setCharacters(response.data.results);
-        data(response.data.results);
+        setData(response.data.results);
       })
       .catch(error => {
         console.error(error);
@@ -47,15 +48,16 @@ return (
     <Button>
   <Link className="nav" to="/"> Home </Link>
   </Button>
-  <SearchForm search = {search} character={characters} />
+  <SearchForm filter = {filter} characters={characters} />
   </Nav>
   
-    {data.map(chars => (
+    {newdata.map(chars => (
       <CharacterCard
         key={chars.id}
         name={chars.name}
         species={chars.species}
         gender={chars.gender}
+        image={chars.image}
       />
          ))}
   </section>

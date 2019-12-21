@@ -14,11 +14,12 @@ opactity: 0.7;`
 export default function CharacterCard(props) {
   return ( <div className="character-card">
     <Card>
-    
-    <h2>Name: {props.char.name}</h2>
-    <p>Status: {props.char.status}</p>
-    <p>Gender: {props.char.gender}</p>
-    <p>Species: {props.char.species}</p>
+   
+    <img src={`${props.image}`} alt="character"/> 
+    <h2>Name: {props.name}</h2>
+    <p>Status: {props.status}</p>
+    <p>Gender: {props.gender}</p>
+    <p>Species: {props.species}</p>
    </Card>
   
   </div>
